@@ -12,7 +12,7 @@
 <body class="text-success">
     <!--Navbar-->
   <header>
-    <nav class="navbar navbar-expand-lg bg-success shadow border-bottom border-4 border-dark border-opacity-25">
+    <nav class="navbar navbar-expand-lg bg-success shadow border-bottom border-4 border-dark border-opacity-25" data-bs-theme="dark">
       <div class="container">
         <i class="bi bi-shop-window fs-1 fw-bold text-light me-2"></i>
         <a class="navbar-brand fs-2 fw-bold text-light" href="#">Quitanda do Zé</a>
@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active fs-5 text-light mx-5" aria-current="page" href="/index.html">Home</a>
+              <a class="nav-link active fs-5 text-light me-5" aria-current="page" href="/index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link fs-5 text-enphasis me-5" aria-current="page" href="#">Quem Somos</a>
@@ -32,7 +32,7 @@
             </li>
           </ul>
           <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Digite o produto" aria-label="Digite o produto">
+            <input class="form-control me-2" type="search" data-bs-theme="light" placeholder="Digite o produto" aria-label="Digite o produto">
             <button class="btn btn-danger" type="submit">Buscar</button>
           </form>
         </div>
@@ -44,44 +44,48 @@
     <h2 class="text-center my-3">História do Zé</h2>
     <p class="w-75 text-center fs-5 mb-3">A Quitanda do Zé tem suas raízes na <strong>simplicidade e no empreendedorismo</strong> de José Carlos Pereiras, um homem do interior paulista que decidiu compartilhar os <strong>sabores da terra</strong> com sua comunidade. A história da Quitanda do Zé é um exemplo de <strong>perseverança e crescimento gradual.</strong></p>
     <!--Carrossel-->
-    <div id="carouselExampleCaptions" class="carousel slide w-75">
-            <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="img/imagem_1.jpeg" class="d-block w-100 rounded" alt="Carrinho de mão do Zé">
-                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
-                <h5>Início</h5>
-                <p>A Quitanda do Zé tem suas raízes na simplicidade e no empreendedorismo de José Carlos Pereiras, um homem do interior paulista que decidiu compartilhar os sabores da terra com sua comunidade. A história da Quitanda do Zé é um exemplo de perseverança e crescimento gradual.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="img/imagem_2.jpeg" class="d-block w-100 rounded" alt="Feira do Zé">
-                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
-                <h5>Crescimento</h5>
-                <p>Com o tempo, a demanda por suas mercadorias cresceu, e Zé tomou uma decisão audaciosa. Ele montou uma modesta barraca na feira municipal, onde a Quitanda do Zé logo se tornou uma parada obrigatória para os moradores em busca de alimentos frescos e saborosos. A qualidade dos produtos e o atendimento caloroso fizeram com que a Quitanda do Zé se destacasse.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="img/imagem_3.jpeg" class="d-block w-100 rounded" alt="Quitanda do Zé">
-                <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
-                <h5>Inspiração</h5>
-                <p>À medida que o tempo passava, Zé e sua equipe mantiveram-se fiéis a seus valores de oferecer produtos de alta qualidade e um atendimento acolhedor. Isso atraiu cada vez mais clientes leais. A história da Quitanda do Zé é um lembrete de que, com trabalho árduo, amor pelo que se faz e valores sólidos, é possível transformar um carrinho de mão em uma instituição local, proporcionando qualidade de vida e sabor para todos.</p>
-                </div>
-            </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <div id="carouselExampleCaptions" class="carousel slide w-75">
+                  <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>
+                  <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      <img src="img/imagem_1.jpeg" class="d-block w-100 rounded" alt="Carrinho de mão do Zé">
+                      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
+                      <h5>Início</h5>
+                      <p>A Quitanda do Zé tem suas raízes na simplicidade e no empreendedorismo de José Carlos Pereiras, um homem do interior paulista que decidiu compartilhar os sabores da terra com sua comunidade. A história da Quitanda do Zé é um exemplo de perseverança e crescimento gradual.</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <img src="img/imagem_2.jpeg" class="d-block w-100 rounded" alt="Feira do Zé">
+                      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
+                      <h5>Crescimento</h5>
+                      <p>Com o tempo, a demanda por suas mercadorias cresceu, e Zé tomou uma decisão audaciosa. Ele montou uma modesta barraca na feira municipal, onde a Quitanda do Zé logo se tornou uma parada obrigatória para os moradores em busca de alimentos frescos e saborosos. A qualidade dos produtos e o atendimento caloroso fizeram com que a Quitanda do Zé se destacasse.</p>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <img src="img/imagem_3.jpeg" class="d-block w-100 rounded" alt="Quitanda do Zé">
+                      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75">
+                      <h5>Inspiração</h5>
+                      <p>À medida que o tempo passava, Zé e sua equipe mantiveram-se fiéis a seus valores de oferecer produtos de alta qualidade e um atendimento acolhedor. Isso atraiu cada vez mais clientes leais. A história da Quitanda do Zé é um lembrete de que, com trabalho árduo, amor pelo que se faz e valores sólidos, é possível transformar um carrinho de mão em uma instituição local, proporcionando qualidade de vida e sabor para todos.</p>
+                      </div>
+                  </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                  </button>
+          </div>
+      </div>
+    </div>
     <h2 class="text-center my-3">Propósito e princípios</h2>
 
     <!--Acordeon-->
