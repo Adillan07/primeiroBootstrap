@@ -70,7 +70,7 @@ def acesso():
     senha_informada = request.form["senha"]
     if (usuario == usuario_informado) and (senha == senha_informada):
         session['login'] = True
-        return redirect("/") #VOLTA PARA HOMEPAGE
+        return redirect("/areaDoAdministrador") #ENVIA PARA A ÁREA DO ADMINISTRADOR
     else:
         return render_template("login.html",msg="Usuário ou Senha estão incorretos!") #ABRE LOGIN NOVAMENTE, MAS COM UMA MENSAGEM
     

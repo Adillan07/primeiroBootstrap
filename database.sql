@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS produtos (
-    id INTEGER PRIMARY KEY,
-    nome TEXT NOT NULL,
-    descricao TEXT NOT NULL,
-    preco DECIMAL(5,2) NOT NULL,
-    imagem TEXT NOT NULL 
+    id_prod INTEGER PRIMARY KEY,
+    nome_prod TEXT NOT NULL,
+    descricao_prod TEXT NOT NULL,
+    preco_prod DECIMAL(5,2) NOT NULL,
+    imagem_prod TEXT NOT NULL 
 );
