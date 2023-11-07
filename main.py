@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session
 import sqlite3 as sql
+import uuid #GERA UM NOME ALEATÓRIO PARA A IMAGEM QUE SERÁ SALVA
 
 app = Flask(__name__)
 app.secret_key = "produtosdoseuze"
@@ -37,25 +38,29 @@ def index():
     conexao = conecta_database()
     produtos = conexao.execute('SELECT * FROM produtos ORDER BY id DESC').fetchall()
     conexao.close()
+    titulo = "Página Inicial"
     if verificaSessao() is True:
         login = True
     else:
         login = False
-    return render_template("index.html",produtos=produtos,login=login)
+    return render_template("index.html",produtos=produtos,login=login,titulo=titulo)
 
 #ROTA PARA PÁGINA SOBRE
 @app.route('/sobre')
 def sobre():
-    return render_template("sobre.html",login=login)
+    titulo = "Quem Somos"
+    return render_template("sobre.html",login=login,titulo=titulo)
 
 
-#ROTA PARA FAZER O LOGIN
-@app.route('/loginDoAdministrador')
-def fazerLogin():
+#ROTA PARA ÁREA DO ADMINISTRADOR
+@app.route('/areaDoAdministrador')
+def areaDoAdministrador():    
     if login is False:
-        return render_template('login.html')
+        titulo = "Login"
+        return render_template('login.html',login=login,titulo=titulo)
     else:
-        return redirect("/",msg="Administrador já está logado!") #RETORNA PARA A HOMEPAGE, MAS COM UMA MENSAGEM
+        titulo = "Administração"
+        return render_template('adm.html',login=login,titulo=titulo)
     
 #ROTA PARA VERIFICAR LOGIN
 @app.route('/acesso', methods=['POST'])

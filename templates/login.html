@@ -1,24 +1,29 @@
 {% extends 'modelo.html' %}
-<!--BOTÃO INICIAL-->
+
+<!--BOTÃO DE LOGOFF-->
 {% block botao %}
     {% if login %}
-        <a href="/"><button class="btn btn-light btn-lg text-success px-5" type="submit">Logoff</button></a>
+        <a href="/logoff"><button class="btn btn-light btn-sm text-success p-2 me-3" type="submit">Logoff</button></a>
     {% endif %}
 {% endblock %}
 
-
 {% block conteudo %}
-<div id="login" class="d-flex flex-column align-items-center col-8 mx-auto mt-5">
-    <form action="/acesso" method="post" class="d-flex w-50 flex-column novopost">
-        <h2>Acesso do dono do Blog</h2>
-        <label>Usuário:</label>
-        <input type="text" name="usuario" id="usuario" class="mb-4" required>
-        <label>Senha:</label>
-        <input type="password" name="senha" id="senha" class="mb-4" required>
-        <input type="submit" value="Entrar" class="w-25 mx-auto">
-    </form>
-    {% if msg %}
-        <h2 class="w-50 mx-auto mt-3 text-center fs-6">{{msg}}</h2>
+    {% if not login %}
+        <div id="login" class="d-flex flex-column align-items-center col-8 mx-auto mt-5">
+            <form action="/acesso" method="post" class="d-flex w-50 flex-column novopost">
+                <h2 class="display-5">Acesso do administrador</h2>
+                <label>Usuário:</label>
+                <input type="text" name="usuario" id="usuario" class="mb-4" required>
+                <label>Senha:</label>
+                <input type="password" name="senha" id="senha" class="mb-4" required>
+                <input type="submit" value="Entrar" class="w-25 mx-auto btn btn-md btn-success text-light fs-3 p-auto">
+            </form>
+            {% if msg %}
+                <h2 class="w-50 mx-auto mt-3 text-center fs-6">{{msg}}</h2>
+            {% endif %}
+        </div>
+
+    {% else %}
+        <h2 class="display-1 text-center">O administrador já está logado!</h2>
     {% endif %}
-</div>
 {% endblock %}
