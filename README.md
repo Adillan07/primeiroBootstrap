@@ -58,7 +58,7 @@ Para configurar e executar o projeto em sua máquina local, siga estas etapas:
 - `main.py`: O código principal do aplicativo Flask.
 - `templates/`: Diretório contendo os modelos HTML.
 - `static/`: Diretório contendo arquivos estáticos, como CSS e imagens.
-- `db_quitanda.sql`: Arquivo com dados iniciais de produtos.
+- `db_quitanda.db`: Arquivo com dados iniciais de produtos.
 
 
 ## Contribuições
