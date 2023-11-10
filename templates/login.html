@@ -3,7 +3,7 @@
 <!--BOTÃO DE LOGOFF-->
 {% block botao %}
     {% if login %}
-        <a href="/logoff"><button class="btn btn-light btn-sm text-success p-2 me-3" type="submit">Logoff</button></a>
+        <a href="/logoff"><button class="btn btn-light btn-sm text-success p-2 me-3" type="submit">Sair</button></a>
     {% endif %}
 {% endblock %}
 
@@ -14,13 +14,13 @@
                 <h2 class="display-5">Acesso do administrador</h2>
                 <div class="form-floating mb-3">
                     <label for="usuario">Usuário:</label>
-                    <input type="text" name="usuario" id="usuario" class="form-control mt-5" autofocus required>
+                    <input type="text" name="usuario" id="usuario" class="form-control mt-5 fs-3 pb-3" autofocus required>
                     <div class="invalid-feedback">Você deve informar o nome do usuário</div>
                 </div>
 
                 <div class="form-floating mb-3">
                     <label for="senha">Senha:</label>
-                    <input type="password" name="senha" id="senha" class="form-control mt-5" required>
+                    <input type="password" name="senha" id="senha" class="form-control mt-5 fs-3 pb-3" required>
                     <div class="invalid-feedback">Você deve informar a senha do usuário</div>
                 </div>
 
@@ -40,4 +40,25 @@
     {% else %}
         <h2 class="display-1 text-center">O administrador já está logado!</h2>
     {% endif %}
+    <script>
+        // Exemplo de JavaScript inicial para desabilitar envios de formulários se houver campos inválidos
+        (() => {
+            'use strict'
+        
+            // Busque todos os formulários aos quais queremos aplicar estilos de validação personalizados do Bootstrap
+            const forms = document.querySelectorAll('.needs-validation')
+        
+            // Passe por cima deles e evite o envio
+            Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+                }
+        
+                form.classList.add('was-validated')
+            }, false)
+            })
+        })()
+    </script>
 {% endblock %}

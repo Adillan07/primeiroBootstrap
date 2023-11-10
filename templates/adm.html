@@ -1,16 +1,43 @@
 {% extends 'modelo.html' %}
 
-<!--BOTÃO DE LOGOFF-->
-{% block botao %}
-    {% if login %}
-        <a href="/logoff"><button class="btn btn-light btn-sm text-success p-2 me-3" type="submit">Logoff</button></a>
-    {% endif %}
-{% endblock %}
-
 {% block conteudo %}
-<!--Título-->
-<div class="container-fluid text-center my-3">
-    <h1 class="dsplay-1 text-center">Bem-vindo Chefia!</h1>
-</div>
+    <!--Título-->
+    <div class="d-flex flex-column align-items-center mx-auto mt-3">
+        <div class="container-fluid text-center my-3">
+            <h1 class="dsplay-1 text-center">Bem-vindo, Chefia!</h1>
+        </div>
+        {% if not produtos %}
+            <h1 class="text-center text-danger my-5">Não há produtos cadastrados</h1>
+        {% else %}
+            <div class="container text-center">
+                <div class="row g-3">
+                    {% for produto in produtos %}
+                    <div class="col-12 col-md-10 col-lg-6 mx-auto">
 
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                <img src="../static/img/produtos/{{produto['img_prod']}}" class="img-fluid rounded-start h-100" alt="{{produto['nome_prod']}}">
+                                </div>
+                                <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{produto['nome_prod']}}</h5>
+                                    <p class="card-text"><small class="text-body-secondary">{{produto['nome_prod']}}</small></p>
+                                    <p class="card-title fs-5">R$ {{produto['preco_prod']}}</p>
+                                    <a href="/editar/{{produto['id_prod']}}"><i class="bi bi-pencil-square text-success fs-3"></i></a>
+                                    <a href="/excluir/{{produto['id_prod']}}" class="ms-5" onclick="return confirm('Você tem certeza de que deseja excluir esse produto?')"><i class="bi bi-trash3 text-success fs-3"></i></a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+        {% endif %}
+            <div class="container text-center">
+                <button type="button" onclick="window.location.href='/cadprodutos'" class="btn btn-lg btn-success mx-5">Cadastrar</button>
+                <button type="button" onclick="window.location.href='/logoff'" class="btn btn-lg btn-danger mx-5">Sair</button>
+            </div>
+        </div>
+    </div>
 {% endblock %}
