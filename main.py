@@ -46,6 +46,15 @@ def index():
         login = False
     return render_template("index.html",produtos=produtos,login=login,titulo=titulo)
 
+#ROTA DA PÁGINA DE BUSCA
+@app.route("/buscar",methods=["post"])
+def buscar():
+    busca=request.form["buscar"]
+    conexao = conecta_database()
+    produtos = conexao.execute('SELECT * FROM produtos WHERE nome_prod LIKE "%" || ? || "%"',(busca,)).fetchall()
+    titulo = "Página Inicial"
+    return render_template("index.html",produtos=produtos,titulo=titulo)
+
 #ROTA PARA PÁGINA SOBRE
 @app.route('/sobre')
 def sobre():
@@ -127,22 +136,30 @@ def editpost():
     desc_prod = request.form['desc_prod']
     preco_prod = request.form['preco_prod']
     img_prod = request.files['img_prod']
-    id_foto=str(uuid.uuid4().hex)
-    filename=id_foto+nome_prod+'.png'
-    conexao = conecta_database()
-    img_prod.save("static/img/produtos/"+filename)
-    print(filename)
-    conexao = conecta_database()
-    conexao.execute('UPDATE produtos SET nome_prod = ?, desc_prod = ?, preco_prod = ? WHERE id_prod = ?',(nome_prod,desc_prod,preco_prod,id_prod,))
-    conexao.commit()
-    conexao.close()
+    if not img_prod:
+        conexao = conecta_database()
+        conexao.execute('UPDATE produtos SET nome_prod = ?, desc_prod = ?, preco_prod = ? WHERE id_prod = ?',(nome_prod,desc_prod,preco_prod,id_prod))
+        conexao.commit()
+        conexao.close()
+    else:
+        conexao = conecta_database()
+        imagem = conexao.execute('SELECT img_prod FROM produtos WHERE id_prod = ?',(id_prod,)).fetchone()
+        imagem = imagem[0]
+        img_prod.save("static/img/produtos/"+str(imagem))
+        conexao.execute('UPDATE produtos SET nome_prod = ?, desc_prod = ?, preco_prod = ?, img_prod = ? WHERE id_prod = ?',(nome_prod,desc_prod,preco_prod,imagem,id_prod))
+        conexao.commit()
+        conexao.close()
     return redirect("/areaDoAdministrador")
     
 #ROTA PARA EXCLUIR PRODUTOS
 @app.route('/excluir/<id>')
 def excluir(id):
-    if login:
+    if verificaSessao():
         conexao = conecta_database()
+        imagem = conexao.execute('SELECT img_prod FROM produtos WHERE id_prod = ?',(id,)).fetchone()
+        imagem = imagem[0]
+        caminho = os.path.join("static","img","produtos",imagem)
+        os.remove(caminho)
         conexao.execute('DELETE FROM produtos WHERE id_prod = ?',(id,))
         conexao.commit()
         conexao.close()

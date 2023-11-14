@@ -35,8 +35,8 @@
           </ul>
           {% block botao %}
           {% endblock %}
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Digite o produto" aria-label="Digite o produto">
+          <form class="d-flex" role="search" action="/buscar" method="POST">
+            <input class="form-control me-2" type="search" placeholder="Digite o produto" name="buscar" aria-label="Digite o produto">
             <button class="btn btn-danger" type="submit">Buscar</button>
           </form>
         </div>

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center text-center">
             <h1 class="mb-3 display-4">Edição de produtos</h1>
-            <form action="/cadastro" method="POST" enctype="multipart/form-data" class="col-sm-10 col-md-8 col-lg-6 text-center needs-validation" novalidate>
+            <form action="/editpost" method="POST" enctype="multipart/form-data" class="col-sm-10 col-md-8 col-lg-6 text-center needs-validation" novalidate>
                 {% for info in produto %}
                     <div class="form-floating mb-2">
                         <input type="text" name="nome_prod" id="nome_prod" class="form-control" value="{{ info['nome_prod'] }}" required autofocus />
@@ -34,7 +34,7 @@
                             <div class="input-group m2-3">
                                 <img src="../static/img/produtos/{{info['img_prod']}}" alt="{{info['nome_prod']}}" style="width:60px">
                                 <div class="form-floating">
-                                    <input type="file" name="img_prod" id="img_prod" class="form-control" accept="image/jpeg,image/png" required>
+                                    <input type="file" name="img_prod" id="img_prod" class="form-control" accept="image/jpeg,image/png">
                                     <div class="invalid-feedback">Você deve enviar a foto do produto</div>
                                 </div>
                             </div>
