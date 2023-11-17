@@ -44,11 +44,11 @@
         <div class="row g-4">
           {% for produto in produtos %}
             <div class=" col col-12 col-md-6 col-xl-3">
-              <div style="max-height: 640px;" class="card">
+              <div class="card">
                 <img src="../static/img/produtos/{{produto['img_prod']}}" class="card-img-top" alt="{{produto['nome_prod']}}">
                 <div class="card-body">
                   <h5 class="card-title">{{produto['nome_prod']}}</h5>
-                  <p style="overflow-y: scroll; max-height: 170px;" class="card-text">{{produto['desc_prod']}}</p>
+                  <p style="overflow-y: auto;" class="card-text">{{produto['desc_prod']}}</p>
                   <p class="text-center fs-5 border-top "><strong>Preço:</strong> R$ {{produto['preco_prod']}}/kg</p>
                 </div>
               </div>

@@ -23,7 +23,7 @@
                             <div class="input-group mb-2">
                                 <span class="input-group-text">R$</span>
                                 <div class="form-floating">
-                                    <input type="text" name="preco_prod" id="preco_prod" class="form-control" value="{{ info['preco_prod'] }}" required />
+                                    <input type="number" step="0.01" name="preco_prod" id="preco_prod" class="form-control" value="{{ info['preco_prod'] }}" required />
                                     <label for="preco_prod">Preço do produto</label>
                                     <div class="invalid-feedback">Você deve informar o preço do produto</div>
                                 </div>

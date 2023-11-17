@@ -103,7 +103,7 @@ def cadastro():
     if verificaSessao():
         nome_prod = request.form['nome_prod']
         desc_prod = request.form['desc_prod']
-        preco_prod = request.form['preco_prod']
+        preco_prod = request.form['preco_prod'].replace(".",",")
         img_prod = request.files['img_prod']
         id_foto = str(uuid.uuid4().hex)
         filename = id_foto+nome_prod+'.png'
@@ -134,7 +134,7 @@ def editpost():
     id_prod = request.form['id_prod']
     nome_prod = request.form['nome_prod']
     desc_prod = request.form['desc_prod']
-    preco_prod = request.form['preco_prod']
+    preco_prod = request.form['preco_prod'].replace(".",",")
     img_prod = request.files['img_prod']
     if not img_prod:
         conexao = conecta_database()
