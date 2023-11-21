@@ -177,4 +177,4 @@ def logoff():
 
 #FINAL DO CÓDIGO - EXECUTANDO O SERVIDOR
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',pot=5000)
